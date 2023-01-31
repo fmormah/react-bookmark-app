@@ -1,0 +1,60 @@
+.pagination-navigation {
+  .previous-button,
+  .next-button {
+    width: 40px;
+    height: 40px;
+    margin: 30px 10px 0;
+    border-radius: 50px;
+    border: none;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    transition-duration: 0.5s;
+    position: relative;
+    cursor: pointer;
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' width='800px' height='800px' viewBox='0 0 200 200' data-name='Layer 1' id='Layer_1'%3E%3Ctitle/%3E%3Cpath d='M100,15a85,85,0,1,0,85,85A84.93,84.93,0,0,0,100,15Zm0,150a65,65,0,1,1,65-65A64.87,64.87,0,0,1,100,165ZM97.5,57.5a9.9,9.9,0,0,0-14,14L112,100,83.5,128.5a9.9,9.9,0,0,0,14,14L126,114a19.92,19.92,0,0,0,0-28.5Z'/%3E%3C/svg%3E");
+    &:disabled {
+      opacity: 0.2;
+    }
+    &:hover {
+      left: 5px;
+    }
+  }
+  .previous-button {
+    transform: scale(-1);
+    &:hover {
+      left: -5px;
+    }
+  }
+  .dot-button {
+    color: #fff;
+    background: #000;
+    border: none;
+    border-radius: 100%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    position: relative;
+    top: -12px;
+    transform: scale(0.85);
+    transition-duration: 0.2s;
+    border: 1px solid #000;
+    cursor: pointer;
+    &.is-active {
+      border: 2px solid #fff;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.page-mobile-view {
+  display: none;
+  @media screen and (max-width: $mediaBreakPoint) {
+    display: block;
+  }
+}

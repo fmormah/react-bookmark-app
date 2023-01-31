@@ -1,0 +1,16 @@
+@import "./reset";
+body {
+  color: #fff;
+  background-color: rgba($color: #000, $alpha: 0.75);
+  font-family: "Open Sans", sans-serif;
+  background-size: cover;
+  background-position: top center;
+}
+
+$mediaBreakPoint: 950px;
+@import "./App.scss";
+@import "./components/Header/Header.scss";
+@import "./components/PageAlerts/PageAlert";
+@import "./components/Pagination/Pagination.scss";
+@import "./components/BookMarkItem/BookMarkItem.scss";
+@import "./components/BookMarkedList/BookMarkedList.scss";

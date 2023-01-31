@@ -1,0 +1,175 @@
+@keyframes filterMenuAnim {
+  25% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+.filterMenu-anim {
+  animation: filterMenuAnim 0.3s linear 1;
+}
+
+.header-container {
+  background-color: #111;
+  padding: 25px;
+  box-sizing: border-box;
+  color: #fff;
+  box-shadow: 0 10px 10px #000;
+  margin-bottom: 40px;
+  text-align: right;
+  z-index: 10;
+  position: relative;
+  background-image: url("./assets/images/liquid-black.jpg");
+  .header-console {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  h1 {
+    position: absolute;
+    left: 0;
+    top: -8px;
+    .header-number {
+      font-size: 50px;
+    }
+  }
+  @media screen and (max-width: $mediaBreakPoint) {
+    h1 {
+      width: 100%;
+      display: block;
+      position: relative;
+      top: 0;
+      left: 0;
+      text-align: left;
+    }
+  }
+}
+#filter-holder {
+  input {
+    border: none;
+    border-radius: 20px;
+    background-size: 25px 25px;
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='800px' height='800px' viewBox='0 0 24 24' version='1.1'%3E%3Ctitle%3ESearch%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Search'%3E%3Crect id='Rectangle' fill-rule='nonzero' x='0' y='0' width='24' height='24'%3E%3C/rect%3E%3Ccircle id='Oval' stroke='%230C0310' stroke-width='2' stroke-linecap='round' cx='11' cy='11' r='7'%3E%3C/circle%3E%3Cline x1='16' y1='17' x2='19' y2='20' id='Path' stroke='%230C0310' stroke-width='2' stroke-linecap='round'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    width: 0px;
+    padding: 10px 40px 10px 9px;
+    transition-duration: 0.3s;
+    @media screen and (max-width: $mediaBreakPoint) {
+      width: 240px;
+    }
+    &:hover,
+    &:focus {
+      width: 180px;
+      padding: 10px 40px 10px 20px;
+      @media screen and (max-width: $mediaBreakPoint) {
+        width: 240px;
+      }
+    }
+  }
+}
+.filter-btn {
+  border: none;
+  border-radius: 20px;
+  background-size: 25px 25px;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  float: right;
+  margin-left: 10px;
+  background-position: right 5px center;
+  background-repeat: no-repeat;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' width='800px' height='800px' viewBox='0 0 24 24' id='sort-ascending' data-name='Flat Line' class='icon flat-line'%3E%3Cpolyline id='primary' points='10 15 6 19 2 15' style='fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;'/%3E%3Cpath id='primary-2' data-name='primary' d='M6,19V4M20,16H15m5-5H13m7-5H10' style='fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;'/%3E%3C/svg%3E");
+  &:hover {
+    transform: scale(1.2);
+  }
+  ul {
+    background-color: #333;
+    display: block;
+    width: 120px;
+    position: relative;
+    top: 15px;
+    right: 100px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    text-align: center;
+    padding: 10px 0px;
+    @extend .filterMenu-anim;
+    li {
+      button {
+        border: none;
+        background-color: transparent;
+        color: #fff;
+        padding: 8px 5px;
+        width: 100%;
+        cursor: pointer;
+        transition-duration: 0.2s;
+
+        &.is-active,
+        &:hover {
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
+
+.add-form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  input {
+    width: 200px;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 50px 10px 10px;
+    text-align: center;
+  }
+  button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1;
+    right: 4px;
+    top: 3px;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+  }
+  span {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: $mediaBreakPoint) {
+    position: relative;
+    left: 0;
+    top: initial;
+    bottom: 0;
+    transform: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    input {
+      width: 100%;
+      border-radius: 20px;
+      border: none;
+      padding: 10px 50px 10px 10px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+  }
+}

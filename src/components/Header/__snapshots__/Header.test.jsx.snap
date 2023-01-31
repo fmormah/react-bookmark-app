@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders correctly 1`] = `
+<header
+  class="header-container"
+>
+  <div
+    class="header-console"
+  >
+    <h1>
+      <span
+        class="header-number"
+      />
+       Bookmarks
+    </h1>
+    <form
+      class="add-form"
+      data-testid="add-bookmark-form"
+    >
+      <input
+        data-testid="add-bookmark-form-url-input"
+        placeholder="Add New Bookmark"
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        <span>
+          +
+        </span>
+      </button>
+    </form>
+    <div
+      id="filter-holder"
+    >
+      <input
+        data-testid="search-input"
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+      <div
+        class="filter-btn "
+        data-testid="filter-btn"
+      />
+    </div>
+  </div>
+</header>
+`;
