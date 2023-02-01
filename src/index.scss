@@ -1,10 +1,13 @@
 @import "./reset";
 body {
   color: #fff;
-  background-color: rgba($color: #000, $alpha: 0.75);
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(29, 38, 113, 1),
+    rgba(195, 65, 150, 1)
+  );
   font-family: "Open Sans", sans-serif;
-  background-size: cover;
-  background-position: top center;
+  min-height: 100vh;
 }
 
 $mediaBreakPoint: 950px;

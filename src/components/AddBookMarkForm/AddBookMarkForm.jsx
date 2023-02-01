@@ -120,6 +120,17 @@ const AddBookMarkForm = ({ alertHandler, storedData }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldLinkBookmarked, thumbNailBase64,titleAndDescription]);
   // Note: The dependency array is ignored by eslint due to the exhaustive-deps rule being disabled. This is because the code only needs to re-run when the state changes.
+  
+  if(shouldLinkBookmarked){
+    return(
+      <div className="loader-screen">
+        <div className= "loader-centered">
+          <div className= "blob-1"/>
+          <div className= "blob-2"/>
+        </div>
+      </div>
+    )
+  }
   return (
     <>
       <form

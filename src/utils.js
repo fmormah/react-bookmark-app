@@ -14,7 +14,9 @@ export const checkForHttp = (url) => {
 
 export const imageToDataURL = async (imageUrl, stateSetter) => {
   // Fetch the image from the provided URL
-  const response = await fetch(linkImageGrabber + imageUrl);
+  const response = await fetch(
+    `${linkImageGrabber + imageUrl}&width=420&height=300`
+  );
   const imageBlob = await response.blob();
 
   // Create a new FileReader object
