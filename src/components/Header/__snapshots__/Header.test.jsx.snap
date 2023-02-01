@@ -11,19 +11,23 @@ exports[`Header component renders correctly 1`] = `
       <span
         class="header-number"
       />
-       Bookmarks
+       
+      Bookmarks
     </h1>
     <form
+      aria-label="Add new bookmark form"
       class="add-form"
       data-testid="add-bookmark-form"
     >
       <input
+        aria-label="Enter the URL for the bookmark"
         data-testid="add-bookmark-form-url-input"
         placeholder="Add New Bookmark"
         type="text"
         value=""
       />
       <button
+        aria-label="Add Bookmark"
         type="submit"
       >
         <span>
