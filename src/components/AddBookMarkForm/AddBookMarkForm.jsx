@@ -3,7 +3,7 @@ import {
   checkForHttp,
   isValidAndExistsURL,
   proxyUrl,
-  linkImageGrabber,
+  imageToDataURL
 } from "../../utils";
 
 const AddBookMarkForm = ({ alertHandler, storedData }) => {
@@ -13,12 +13,14 @@ const AddBookMarkForm = ({ alertHandler, storedData }) => {
   const [titleAndDescription, setTitleAndDescription] = useState(null);
   // useState hook to manage if the link should be bookmarked
   const [shouldLinkBookmarked, setShouldLinkBookmarked] = useState(null);
+  // useState hook to manage if the link should be bookmarked
+  const [thumbNailBase64, setThumbNailBase64] = useState(null);
 
   // function to get the title and description of a page using its URL
   const getTitleAndDescription = async (url) => {
     try {
       // fetch data from the URL
-      const response = await fetch(url);
+      const response = await fetch(proxyUrl + url);
       const data = await response.text();
 
       // parse the fetched data as HTML
@@ -44,9 +46,11 @@ const AddBookMarkForm = ({ alertHandler, storedData }) => {
   // function to fetch data of the bookmark
   const fetchBookMarkedData = () => {
     if (shouldLinkBookmarked) {
-      // get title and description if the link should be bookmarked
-      getTitleAndDescription(proxyUrl + checkForHttp(link));
-      setShouldLinkBookmarked(null);
+      imageToDataURL(checkForHttp(link), setThumbNailBase64)
+      .then(()=>{
+        getTitleAndDescription(checkForHttp(link));
+        setShouldLinkBookmarked(null);
+      });
     }
   };
 
@@ -55,7 +59,7 @@ const AddBookMarkForm = ({ alertHandler, storedData }) => {
     // create an object with the bookmark data
     const bookeMarkedItem = {
       url: checkForHttp(link),
-      thumbNail: `${linkImageGrabber}${checkForHttp(link)}`,
+      thumbNail: thumbNailBase64,
       favicon: `https://www.google.com/s2/favicons?domain=${checkForHttp(
         link
       )}`,
@@ -114,7 +118,7 @@ const AddBookMarkForm = ({ alertHandler, storedData }) => {
       storeData();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shouldLinkBookmarked, titleAndDescription]);
+  }, [shouldLinkBookmarked, thumbNailBase64,titleAndDescription]);
   // Note: The dependency array is ignored by eslint due to the exhaustive-deps rule being disabled. This is because the code only needs to re-run when the state changes.
   return (
     <>

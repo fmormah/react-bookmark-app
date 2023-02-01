@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Helpers to by-pass CORS/Header protocols (Free version of API will have watermarks)
 export const linkImageGrabber =
-  "http://free.pagepeeker.com/v2/thumbs.php?size=x&url=";
+  "https://api.urlbox.io/v1/testing12345!/png?url=";
 export const proxyUrl = "https://phrost-cors.herokuapp.com/";
 
 const urlCheckTimeOutLimit = 3000; //ms
@@ -14,7 +14,7 @@ export const checkForHttp = (url) => {
 
 export const imageToDataURL = async (imageUrl, stateSetter) => {
   // Fetch the image from the provided URL
-  const response = await fetch(imageUrl);
+  const response = await fetch(linkImageGrabber + imageUrl);
   const imageBlob = await response.blob();
 
   // Create a new FileReader object
