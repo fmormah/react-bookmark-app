@@ -57,14 +57,14 @@
     padding: 10px 40px 10px 9px;
     transition-duration: 0.3s;
     @media screen and (max-width: $mediaBreakPoint) {
-      width: 240px;
+      width: 200px;
     }
     &:hover,
     &:focus {
       width: 180px;
       padding: 10px 40px 10px 20px;
       @media screen and (max-width: $mediaBreakPoint) {
-        width: 240px;
+        width: 200px;
       }
     }
   }
